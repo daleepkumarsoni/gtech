@@ -9,7 +9,17 @@
 <body>
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="col-md-4">
+        
             <h2 class="text-center mb-4">Sign Up</h2>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+             @endif
             <form action="{{route('register')}}" method="POST">
                 @csrf 
                 <div class="mb-3">

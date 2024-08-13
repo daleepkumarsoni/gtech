@@ -25,7 +25,15 @@
 
                                     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper no-footer">
                                         <div class="contanier" style="margin-left: 20%">
-
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                @endif
                                             <div class="modal-body">
                                                 <form action="{{ route('admin.project.update',$project->id) }}" method="POST">
                                                     @csrf

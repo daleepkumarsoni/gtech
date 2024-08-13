@@ -21,14 +21,14 @@ class ProjectController extends Controller
     }
     public function createProject(Request $request)
     {
-
+ 
     $validatedData = $request->validate([
         'name' => 'required|string|max:255',
-        'description' => 'nullable|string',
+        'description' => 'required|string',
         'start_date' => 'required|date',
         'end_date' => 'required|date',
     ]);
-    return back()->withErrors($validatedData)->withInput();
+    
     $project = Auth::user()->projects()->create($request->all());
         return redirect()->back();
     }
@@ -73,11 +73,11 @@ class ProjectController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
         ]);
-        // return back()->withErrors($validatedData)->withInput();
+       
         $project = Project::find($id);
         $project->name = $request->name;
         $project->description = $request->description;

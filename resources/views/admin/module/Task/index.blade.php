@@ -14,10 +14,21 @@
                         </div>
                         <div class="white_card_body">
                             <div class="QA_section">
+                           
                                 <div class="white_box_tittle list_header">
+                               
                                     <h4>shorting Arrow</h4>
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger ">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     <div class="box_right d-flex lms_block">
-
+                                   
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal">
                                             Add Task

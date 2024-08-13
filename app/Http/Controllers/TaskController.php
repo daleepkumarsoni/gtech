@@ -88,13 +88,13 @@ class TaskController extends Controller
         $validatedData = $request->validate([
             'project_id' => 'required|exists:projects,id',
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'status' => 'required|in:pending,in_progress,completed',
             'assigned_to' => 'required|exists:users,id',
             'priority' => 'required|in:low,medium,high',
             'due_date' => 'required|date',
         ]);
-        //  return back()->withErrors($validatedData)->withInput();
+       
         $taskData = $request->all();
         $taskData['created_by'] = Auth::id(); // Assign the currently authenticated user's ID as the creator
 
@@ -144,13 +144,13 @@ class TaskController extends Controller
         $validatedData = $request->validate([
             'project_id' => 'required|exists:projects,id',
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'status' => 'required|in:pending,in_progress,completed',
             'assigned_to' => 'required|exists:users,id',
             'priority' => 'required|in:low,medium,high',
             'due_date' => 'required|date',
         ]);
-        return back()->withErrors($validatedData)->withInput();
+       
         $project = Task::find($id);
         $project->name = $request->name;
         $project->description = $request->description;
@@ -192,7 +192,8 @@ class TaskController extends Controller
         }
     }
     // return $chartData;
-    return view('chart', compact('chartData'));
+    return view('admin.module.project.chart',compact('chartData'));
+    // return view('chart', compact('chartData'));
 }
 public function searchTask(Request $request)
 {

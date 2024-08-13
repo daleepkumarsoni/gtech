@@ -16,8 +16,17 @@
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
                                     <h4>shorting Arrow</h4>
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger ">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     <div class="box_right d-flex lms_block">
-
+                                   
                                        
                                     </div>
                                 </div>
@@ -48,7 +57,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label" for="inputState">Status</label>
                                                         <select id="status" name="status" class="form-select">
-                                                            <option value="{{$tasks->id}}">{{$tasks->status}}</option>
+                                                            <option value="{{$tasks->status}}">{{$tasks->status}}</option>
                                                             <option value="pending">pending</option>
                                                             <option value="in_progress">In Progress</option>
                                                             <option value="completed">Completed</option>
@@ -57,7 +66,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label" for="inputState">Priority</label>
                                                         <select id="priority" name="priority" class="form-select">
-                                                            <option value="{{$tasks->id}}">{{$tasks->priority}}</option>
+                                                            <option value="{{$tasks->priority}}">{{$tasks->priority}}</option>
                                                             <option value="low">low</option>
                                                             <option value="medium">medium</option>
                                                             <option value="high">high</option>

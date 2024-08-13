@@ -53,6 +53,5 @@
 <script src="{{asset('admin')}}/vendors/chart_am/animated.js"></script>
 <script src="{{asset('admin')}}/vendors/chart_am/kelly.js"></script>
 <script src="{{asset('admin')}}/vendors/chart_am/chart-custom.js"></script>
-
 <script src="{{asset('admin')}}/js/dashboard_init.js"></script>
 <script src="{{asset('admin')}}/js/custom.js"></script>
